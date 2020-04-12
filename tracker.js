@@ -1,10 +1,4 @@
 
-$(window).load(function() { // better to use $(document).ready(function(){
-    $('.List li').on('click touchstart', function() {
-        $('.Div').slideDown('500');
-    });
-});
-
 
 
 
