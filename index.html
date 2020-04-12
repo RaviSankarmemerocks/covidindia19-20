@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+	<script type="text/javascript" src="tracker.js"></script>
+</head>
+<body  >
+<!-- Image and text -->
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <img src="india-svgrepo-com.svg" width="80" height="50" class="d-inline-block align-top" alt="" >
+    Covid19-INDIA
+  </a>
+</nav>
+
+<div style="margin-left:50px; margin-right: 50px; margin-top: 30px;">
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+  <div class="card-header">Total Population</div>
+  <div class="card-body">
+    <h5 id="totalpop"></h5>
+   
+  </div>
+</div>
+  </div>
+  <div class="col-sm-4">
+   <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+  <div class="card-header">Confirmed</div>
+  <div class="card-body">
+    <h4 id="confirmed"></h4>
+   
+  </div>
+</div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+  <div class="card-header">Died</div>
+  <div class="card-body">
+    <h4 id="death"></h4>
+  
+  </div>
+</div>
+  </div>
+</div>
+
+
+
+
+  <div class="row">
+  <div class="col-sm-4">
+    <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+  <div class="card-header">Percentage affected by corona</div>
+  <div class="card-body">
+    <h4 id="pac"></h4>
+  </div>
+</div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+  <div class="card-header">Percentage of death</div>
+  <div class="card-body">
+    <h4 id="pod"></h4>
+    
+  </div>
+</div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+  <div class="card-header">Recovered</div>
+  <div class="card-body">
+    <h4 id="rec"></h4>
+    
+  </div>
+</div>
+  </div>
+</div>
+<div>
+	<p id="count"></p>
+</div>
+
+
+
+
+
+
+	
+   <label for="exampleFormControlSelect1">select state:</label>
+  <select class="form-control" id="getstate">
+    <option  value="0"  onclick="check()" >Maharastra</option>
+    <option  value="1"  onclick="check()" >Delhi</option>
+    <option  value="2"  onclick="check()" >TamilNadu</option>
+    <option  value="3"  onclick="check()" >Rajastan</option>
+    <option  value="4"  onclick="check()" >Madhya Pradesh</option>
+    <option  value="5"  onclick="check()" >Telangana</option>
+    <option  value="6"  onclick="check()" >Gujarat</option>
+    <option  value="7"  onclick="check()" >Uttra Pradesh</option>
+    <option  value="8"  onclick="check()" >Andra pradesh</option>
+    <option  value="9"  onclick="check()" >Kerala</option>
+    <option  value="10" onclick="check()" >Jammu & Kashmir</option>
+    <option  value="11" onclick="check()" >Karnataka</option>
+    <option  value="12" onclick="check()" >Haryana</option>
+    <option  value="13" onclick="check()" >Punjab</option>
+    <option  value="14" onclick="check()" >West Bengal</option>
+    <option  value="15" onclick="check()" >Bihar</option>
+    <option  value="16" onclick="check()" >Odisa</option>
+    <option  value="17" onclick="check()" >Uttrakhand</option>
+    <option  value="18" onclick="check()" >Himashal Pradesh</option>
+    <option  value="19" onclick="check()" >Assam</option>
+    <option  value="20" onclick="check()" >Chhattishgar</option>
+    <option  value="21" onclick="check()" >Chandigar</option>
+    <option  value="22" onclick="check()" >Jarkhand</option>
+    <option  value="23" onclick="check()" >Ladakh</option>
+    <option  value="24" onclick="check()" >Andaman and Nicobar</option>
+    <option  value="25" onclick="check()" >Goa</option>
+    <option  value="26" onclick="check()" >Puducherry</option>
+    <option  value="27" onclick="check()" >Manipur</option>
+    <option  value="28" onclick="check()" >Tripura</option>
+    <option  value="29" onclick="check()" >Mizoram</option>
+    <option  value="30" onclick="check()" >Arunachal Pradesh</option>
+    <option  value="31" onclick="check()" >Dadra and Nagar Haveli</option>
+    <option  value="32" onclick="check()" >Nagaland</option>
+    <option  value="33" onclick="check()" >Daman and Diu</option>
+    <option  value="34" onclick="check()" >Lakshadweep</option>
+    <option  value="35" onclick="check()" >Meghalaya</option>
+    <option  value="36" onclick="check()" >Sikkim</option>
+
+
+
+
+
+</select>
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+<div>
+	<ol>
+
+  
+
+</ol> 
+
+<center>
+<table class="table table-hover" style="width: 1000px;">
+  <thead class="bg-primary" style="color: white;">
+    <tr>
+     
+      <th scope="col">State</th>
+      <th scope="col">Total Corona Confirmed cases</th>
+      <th scope="col">Active cases</th>
+      <th scope="col">	Recovered ffrom corona</th>
+
+      <th scope="col">Death by Corona</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     
+    <td id="state"></td>
+    <td id="con"></td>
+    <td  id="act"></td>
+    <td id="dd"></td>
+    <td id="reco"></td>
+   
+    </tr>
+  </tbody>
+</table>
+
+</center>
+
+</div>
+</div>
+</body>
+</html>
