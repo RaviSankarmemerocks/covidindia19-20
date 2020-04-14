@@ -3,29 +3,85 @@
 <head>
 	<title></title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <!--<meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+ <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+
+
+
+
+
+
+
+
+
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 
 	<script type="text/javascript" src="tracker.js"></script>
+    <!--<script type="text/javascript" src="covidchart.js"></script>-->
 </head>
 <body  >
 <!-- Image and text -->
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-dark bg-dark" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
   <a class="navbar-brand" href="#">
     <img src="india-svgrepo-com.svg" width="80" height="50" class="d-inline-block align-top" alt="" >
     Covid19-INDIA
   </a>
 </nav>
 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div style="margin-left:50px; margin-right: 50px; margin-top: 30px;">
 <div class="row">
   <div class="col-sm-4">
-    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+    <div class="card text-white bg-primary mb-3" style="max-width: 30rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
   <div class="card-header">Total Population</div>
   <div class="card-body">
     <h5 id="totalpop"></h5>
@@ -34,7 +90,7 @@
 </div>
   </div>
   <div class="col-sm-4">
-   <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+   <div class="card text-white bg-danger mb-3" style="max-width: 30rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
   <div class="card-header">Confirmed</div>
   <div class="card-body">
     <h4 id="confirmed"></h4>
@@ -43,7 +99,7 @@
 </div>
   </div>
   <div class="col-sm-4">
-    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+    <div class="card text-white bg-dark mb-3" style="max-width: 30rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
   <div class="card-header">Died</div>
   <div class="card-body">
     <h4 id="death"></h4>
@@ -58,7 +114,7 @@
 
   <div class="row">
   <div class="col-sm-4">
-    <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+    <div class="card text-white bg-warning mb-3" style="max-width: 30rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
   <div class="card-header">Percentage affected by corona</div>
   <div class="card-body">
     <h4 id="pac"></h4>
@@ -66,7 +122,7 @@
 </div>
   </div>
   <div class="col-sm-4">
-    <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+    <div class="card text-white bg-info mb-3" style="max-width: 30rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
   <div class="card-header">Percentage of death</div>
   <div class="card-body">
     <h4 id="pod"></h4>
@@ -74,16 +130,65 @@
   </div>
 </div>
   </div>
-  <div class="col-sm-4">
-    <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+  <div class="col-sm-4" >
+   
+    <div class="card text-dark bg-light shadow mb-3" style="max-width: 30rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
   <div class="card-header">Recovered</div>
   <div class="card-body">
     <h4 id="rec"></h4>
     
   </div>
 </div>
+  
+</div>
+ 
+</div>
+<div class="row">
+  
+  <div class="col-sm-4">
+    <canvas  id="myChart"></canvas>
+  </div>
+    <div class="col-sm-4">
+    <canvas  id="myChart2"></canvas>
+  </div>
+    <div class="col-sm-4">
+    <canvas  id="myChart3"></canvas>
   </div>
 </div>
+ <!--<div class="row">
+  <div class="col-sm-4">
+    <div class="card text-white bg-warning mb-3" style="max-width: 30rem;">
+  <div class="card-header">Percentage affected by corona</div>
+ <div class="card-body">
+     <canvas id="myChart" width="200" height="200"></canvas>
+    
+ </div>   
+</div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card text-white bg-info mb-3" style="max-width: 30rem;">
+  <div class="card-header">Percentage of death</div>
+<div class="card-body">
+     <canvas id="myChart2" width="200" height="200"></canvas>
+     
+ </div>   
+</div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card text-dark bg-light mb-3" style="max-width: 30rem;">
+  <div class="card-header">Recovered</div>
+  <div class="card-body">
+     <canvas id="myChart3" width="200" height="200"></canvas>
+    
+ </div>   
+</div>
+  </div>
+</div>
+-->
+
+
+
+
 <div>
 	<p id="count"></p>
 </div>
@@ -160,20 +265,16 @@
 
 </ol> 
 
-
-
-</div>
-</div>
-	
-<div style="overflow-x:auto; margin-right:10px;margin-left:10px; ">
-<table class="table table-hover">
+<!--<center>
+<div style="overflow-x:auto;">
+<table class="table table-hover" >
   <thead class="bg-primary" style="color: white;">
     <tr>
      
       <th scope="col">State</th>
       <th scope="col">Total Corona Confirmed cases</th>
       <th scope="col">Active cases</th>
-      <th scope="col">	Recovered ffrom corona</th>
+      <th scope="col">  Recovered ffrom corona</th>
 
       <th scope="col">Death by Corona</th>
 
@@ -183,18 +284,60 @@
     <tr>
      
     <td id="state"></td>
-    <td id="con"></td>
-    <td  id="act"></td>
-    <td id="dd"></td>
-    <td id="reco"></td>
+    <td id=""></td>
+    <td  id=""></td>
+    <td id=""></td>
+    <td id=""></td>
    
     </tr>
   </tbody>
 </table>
 
+
+</center>-->
+<p id="state"></p>
 </div>
-	
-	
-	
+</div>
+<div style="margin-left:50px; margin-right: 50px; margin-top: 30px;">
+<div class="row">
+    <div class="col-sm-3">
+  <div class="card border-primary mb-3" style="max-width: 18rem;max-width: 30rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); ">
+  
+  <div class="card-header text-primary" >Total Corona Confirmed Cases</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title" id="con"></h5>
+   
+  </div>
+</div>
+</div>
+  <div class="col-sm-3">
+<div class="card border-danger mb-3" style="max-width: 18rem;max-width: 30rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+  <div class="card-header text-danger" >Active Corona Cases</div>
+  <div class="card-body text-danger">
+    <h5 class="card-title" id="act"></h5>
+    
+  </div>
+</div>
+</div>
+  <div class="col-sm-3">
+<div class="card border-success mb-3" style="max-width: 18rem;max-width: 30rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+  <div class="card-header text-success" >Recovered From Corona</div>
+  <div class="card-body text-success">
+    <h5 class="card-title" id="reco"></h5>
+   
+  </div>
+</div>
+</div>
+      <div class="col-sm-3">
+<div class="card border-dark mb-3" style="max-width: 18rem;max-width: 30rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+  <div class="card-header text-dark" >Death By Corona</div>
+  <div class="card-body text-dark">
+    <h5 class="card-title" id="dd"></h5>
+    
+  </div>
+</div>
+</div>
+</div>
+</div>
 </body>
 </html>
