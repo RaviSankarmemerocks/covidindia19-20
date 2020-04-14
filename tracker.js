@@ -1,13 +1,193 @@
-
-
-
-
 window.onload=function(){
 countrypop();
    getCoronaStats_IND();
    check();
+    getCoronaAffectedChart();
+   getCoronaRecoveredChart();
+   getCoronaDeadChart();
+
 }
 let country_population=0;
+
+
+function getCoronaAffectedChart(){
+    fetch("https://api.rootnet.in/covid19-in/stats/history")//("https://coronavirus-tracker-api.herokuapp.com/v2/locations/131")
+    .then(function(resp){
+      return resp.json()})
+    .then(function(data){
+      
+
+
+     
+    var ctx = document.getElementById('myChart').getContext('2d');
+var dates=[]
+var datas=[]
+//console.log(data.data[0].day);
+  for(var i=0;i<data.data.length;i++){
+      dates[i]=data.data[i].day;
+      datas[i]=data.data[i].summary.total;
+      }
+     // console.log(data.data[0].summary.total);
+var myChart = new Chart(ctx, {
+  
+    type: 'line',
+    data: {
+        labels: dates,//['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange','Black','White'],
+        datasets: [{
+            label: '# of affected',
+            data: datas,//[10, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(51, 153, 255,0.2)'
+               
+            ],
+            borderColor: 
+                'rgba(0, 102, 255,1)'
+               ,
+            borderWidth: 2
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+
+
+    })
+    .catch(function(){
+      console.log("error!");
+    })
+    setTimeout(getCoronaAffectedChart,43200000);//updates every 12hrs
+}
+
+
+
+
+function getCoronaRecoveredChart(){
+    fetch("https://api.rootnet.in/covid19-in/stats/history")//("https://coronavirus-tracker-api.herokuapp.com/v2/locations/131")
+    .then(function(resp){
+      return resp.json()})
+    .then(function(data){
+      
+
+
+     
+    var ctx = document.getElementById('myChart2').getContext('2d');
+var dates=[]
+var datas=[]
+//console.log(data.data[0].day);
+  for(var i=0;i<data.data.length;i++){
+      dates[i]=data.data[i].day;
+      datas[i]=data.data[i].summary.discharged;
+      }
+     // console.log(data.data[0].summary.dischared);
+var myChart = new Chart(ctx, {
+  
+    type: 'line',
+    data: {
+        labels: dates,//['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange','Black','White'],
+        datasets: [{
+            label: '# of dischares',
+            data: datas,//[10, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(102, 255, 153,0.2)',
+               
+            ],
+            borderColor: 
+                'rgba(0, 255, 0,1)'
+                
+            ,
+            borderWidth: 2
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+
+   
+    })
+    .catch(function(){
+      console.log("error!");
+    })
+    setTimeout(getCoronaRecoveredChart,43200000);//updates every 12hrs
+}
+
+
+
+function getCoronaDeadChart(){
+    fetch("https://api.rootnet.in/covid19-in/stats/history")//("https://coronavirus-tracker-api.herokuapp.com/v2/locations/131")
+    .then(function(resp){
+      return resp.json()})
+    .then(function(data){
+      
+
+
+     
+    var ctx = document.getElementById('myChart3').getContext('2d');
+var dates=[]
+var datas=[]
+//console.log(data.data[0].day);
+  for(var i=0;i<data.data.length;i++){
+      dates[i]=data.data[i].day;
+      datas[i]=data.data[i].summary.deaths;
+      }
+     // console.log(data.data[0].summary.deaths);
+var myChart = new Chart(ctx, {
+  
+    type: 'bar',
+    data: {
+        labels: dates,//['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange','Black','White'],
+        datasets: [{
+            label: '# of deaths',
+            data: datas,//[10, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgb(255, 255, 102,0.2)',
+               
+            ],
+            borderColor: 
+                'rgba(255, 255, 0, 1)'
+               
+            ,
+            borderWidth: 2
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+
+
+    })
+    .catch(function(){
+      console.log("error!");
+    })
+    setTimeout(getCoronaDeadChart,43200000);//updates every 12hrs
+}
+
+
+
+
 
 
 
